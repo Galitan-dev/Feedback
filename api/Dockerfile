@@ -8,5 +8,5 @@ ENV NODE_ENV "development"
 WORKDIR /home/node/app
 RUN [ "yarn" ]
 
-ENTRYPOINT [ "yarn", "nodemon" ]
+ENTRYPOINT [ "yarn", "start" ]
 CMD [ "" ]
