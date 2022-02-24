@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Feedback from '../models/Feedback.js';
+import Feedback from './models/Feedback.js';
 const { Types: { ObjectId: { isValid: isValidId } } } = mongoose;
 
 /**
