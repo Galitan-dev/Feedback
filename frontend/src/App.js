@@ -1,22 +1,20 @@
 import './App.css';
-import logo from './logo.svg';
-
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={process.env.PUBLIC_URL + '/icon.png'} className="App-logo" alt="Star" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
           It's Working !
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href={process.env.REACT_APP_API_URL + '/feedbacks'}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          List feedbacks
         </a>
       </header>
     </div>
