@@ -60,7 +60,7 @@ router.post('/feedbacks/create', function (req, res) {
 	});
 });
 
-router.get('/feedbacks/get/:id', async function (req, res) {
+router.get('/feedbacks/:id', async function (req, res) {
 	const id = req.id_from_param;
 
 	if (!isValidId(id)) {
