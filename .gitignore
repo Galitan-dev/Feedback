@@ -105,3 +105,6 @@ dist
 
 # Database
 database
+
+# DS Sore
+.DS_Store
