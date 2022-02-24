@@ -23,6 +23,40 @@ export default function (app) {
 		res.json(feedbacks);
 	});
     
+	app.post('/feedbacks/create', function (req, res) {
+		/** @type {Feedback} */
+		const feedback = new Feedback(req.body);
+        
+		feedback.validate(async (err) => {
+			if (err) {
+				return res.status(400).json({
+					code: 400,
+					name: 'Bad Request',
+					message: 'Feedback Validation failed',
+					errors: Object.entries(err.errors).map(([field, error]) => ({
+						field,
+						name: error.name,
+						message: error.message,
+						kind: error.kind,
+					})),
+				});
+			}
+            
+			try {
+				await feedback.save();
+			} catch (err) {
+				return res.status(500).send({
+					code: 500,
+					name: err.name,
+					message: err.message,
+					stack: err.stack.split('\n').slice(1)
+				});
+			}
+            
+			return res.status(200).send('The feedback was successfully created!');
+		});
+	});
+	
 	app.get('/feedbacks/:id', async function (req, res) {
 		const id = req.params.id;
 
@@ -58,40 +92,5 @@ export default function (app) {
         
 		res.json(feedback);
 	});
-    
-	app.post('/feedbacks/create', function (req, res) {
-		/** @type {Feedback} */
-		const feedback = new Feedback(req.body);
-        
-		feedback.validate(async (err) => {
-			if (err) {
-				return res.status(400).json({
-					code: 400,
-					name: 'Bad Request',
-					message: 'Feedback Validation failed',
-					errors: Object.entries(err.errors).map(([field, error]) => ({
-						field,
-						name: error.name,
-						message: error.message,
-						kind: error.kind,
-					})),
-				});
-			}
-            
-			try {
-				await feedback.save();
-			} catch (err) {
-				return res.status(500).send({
-					code: 500,
-					name: err.name,
-					message: err.message,
-					stack: err.stack.split('\n').slice(1)
-				});
-			}
-            
-			return res.status(200).send('The feedback was successfully created!');
-		});
-	});
-    
     
 }
