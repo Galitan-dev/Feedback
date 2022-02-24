@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+
+  api:
+    container_name: feedback-api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    environment:
+      PORT: 7777
+      MONGODB_URI: mongodb://feedback-db:27017/feedback
+    ports:
+      - 7777:7777
+    depends_on:
+      - db
+    volumes:
+      - ./api:/home/node/app
+
+  db:
+    image: mongo
+    container_name: feedback-db
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./database:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
