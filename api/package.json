@@ -16,8 +16,8 @@
     "prettier-eslint": "^13.0.0"
   },
   "scripts": {
-    "lint": "eslint",
+    "lint": "yarn eslint",
     "start": "node src/index.js",
-    "dev": "nodemon"
+    "dev": "yarn nodemon"
   }
 }

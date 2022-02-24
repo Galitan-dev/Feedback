@@ -8,8 +8,8 @@
     "react-scripts": "5.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "start": "yarn react-scripts start",
+    "build": "yarn react-scripts build"
   },
   "eslintConfig": {
     "extends": [
