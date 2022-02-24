@@ -2,6 +2,8 @@ import { Component } from 'react';
 import './App.css';
 import Feedback from './feedback/Feedback';
 
+const API_URL = process.env.REACT_APP_API_URL || 'https://api.feedback.galitan.ml'
+
 export default class App extends Component {
   
   constructor(props) {
@@ -10,13 +12,13 @@ export default class App extends Component {
   }
 
   async componentDidMount() {
-    const response = await fetch(process.env.REACT_APP_API_URL + '/feedbacks');
+    const response = await fetch(API_URL + '/feedbacks');
     const data = await response.json();
     this.setState({ feedbacks: data });
   }
 
   async filter(search) {
-    const response = await fetch(process.env.REACT_APP_API_URL + '/feedbacks');
+    const response = await fetch(API_URL + '/feedbacks');
     /**  @type {{ profilePicture: string, author: string, title: string, body: string, createdAt: string, stars: number }[]} */
     const data = await response.json();
 
