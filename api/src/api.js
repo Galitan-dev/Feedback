@@ -5,7 +5,8 @@ const { Types: { ObjectId: { isValid: isValidId } } } = mongoose;
 
 const router = Router();
 
-router.param('id', function( req, _res, next, id ) {
+router.param('id', function (req, _res, next, id) {
+	console.log(req.method);
 	req.id_from_param = id;
 	next();
 });
