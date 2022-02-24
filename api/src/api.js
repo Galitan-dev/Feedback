@@ -3,9 +3,9 @@ import mongoose from 'mongoose';
 import Feedback from './models/Feedback.js';
 const { Types: { ObjectId: { isValid: isValidId } } } = mongoose;
 
-const router = new Router();
+const router = Router();
 
-router.param('id', function( req, next, id ) {
+router.param('id', function( req, _res, next, id ) {
 	req.id_from_param = id;
 	next();
 });
