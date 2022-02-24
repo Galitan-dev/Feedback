@@ -1,0 +1,99 @@
+.⭐ {
+    border: 1px solid var(--action);
+    background-color: var(--background2);
+    position: relative;
+    padding: 10px;
+    border-radius: 20px;
+    transition: .2s;
+    transition-property: all;
+    z-index: 1;
+}
+
+.⭐:hover {
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0px 10px 20px 5px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.⭐-author {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 5px;
+    margin: 5px;
+    padding: 0;
+}
+
+.⭐-title {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+
+.⭐-createdAt::before {
+    content: "Commented at "
+}
+
+.⭐-stars {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 2px;
+}
+
+.⭐-stars-star {
+    height: 13px;
+}
+
+.⭐-title-content {
+    color: var(--action);
+    font-size: 18px;
+}
+
+.⭐-author-picture {
+    height: 20px;
+    padding: 0;
+}
+
+.⭐-author-name {
+    font-size: 13px;
+}
+
+.⭐-body {
+    font-size: 13px;
+}
+
+.⭐-createdAt {
+    margin-top: 5px;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 550px) {
+    .⭐-stars-star {
+        height: 20px;
+    }
+
+    .⭐-title-content {
+        font-size: 25px;
+    }
+
+    .⭐-author-picture {
+        height: 30px;
+        padding: 0;
+    }
+
+    .⭐-author-name {
+        font-size: 20px;
+    }
+
+    .⭐-body {
+        font-size: 17px;
+    }
+
+    .⭐-createdAt {
+        font-size: 13px;
+    }
+}

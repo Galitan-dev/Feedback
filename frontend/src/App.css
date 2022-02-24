@@ -1,38 +1,77 @@
 .App {
+  margin: 50px;
+}
+
+.App-search {
   text-align: center;
+  margin: 50px auto;
+  width: fit-content;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--action);
+  transition: .3s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-search:hover, .App-search:focus-within {
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0px 10px 20px 5px rgba(0,0,0,0.5);
+    z-index: 10;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App-search input {
+  font-size: 30px;
+  padding: 5px;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  color: var(--action);
+  background: var(--background2);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.App-search input[type="submit"] {
+  background: var(--action);
+  color: var(--background2);
+  border-left: 1px solid var(--action);
+  transition: .3s;
+  width: 150px;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.App-search input[type="submit"]:hover {
+  color: var(--background);
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.App-feedbacks {
+  display: block;
+}
+
+.App-feedbacks .⭐ {
+  margin: 20px;
+}
+
+@media (min-width: 800px) {
+  .App-feedbacks {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
   }
-  to {
-    transform: rotate(360deg);
+
+  .App-feedbacks .⭐ {
+    margin: 10px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .App-feedbacks {
+    grid-template-columns: repeat(3, auto);
+  }
+}
+
+@media (min-width: 1370px) {
+  .App-feedbacks {
+    grid-template-columns: repeat(4, auto);
   }
 }
