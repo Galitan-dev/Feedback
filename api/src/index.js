@@ -10,7 +10,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-api(app);
+app.use(api);
 
 console.log(`\n============ Feedback API v${process.env.npm_package_version} ============\n`);
 
