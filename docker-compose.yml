@@ -2,16 +2,31 @@ version: "3.9"
 
 services:
 
+  frontend:
+    container_name: feedback-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      PORT: 3000
+      API_URI: http://localhost:3333
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+    volumes:
+      - ./frontend:/home/node/app
+
   api:
     container_name: feedback-api
     build:
       context: ./api
       dockerfile: Dockerfile
     environment:
-      PORT: 7777
+      PORT: 3333
       MONGODB_URI: mongodb://feedback-db:27017/feedback
     ports:
-      - 7777:7777
+      - 3333:3333
     depends_on:
       - db
     volumes:
