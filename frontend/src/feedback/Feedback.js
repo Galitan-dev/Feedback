@@ -6,7 +6,9 @@ import yellowStar from "./star/yellow.png";
 /** @param {{ profilePicture: string, author: string, title: string, body: string, createdAt: Date, stars: number }} props */
 export default class Feedback extends Component {
     render() {
-        return <div className="⭐">
+        return <div className={this.props.body.length > 300 ?
+                (this.props.body.length > 600 ? "⭐ very-tall" : "⭐ tall") 
+                : "⭐"}>
             <div className="⭐-header">
                 <div className="⭐-author">
                     <img className="⭐-author-picture" alt="Author" src={this.props.profilePicture} />

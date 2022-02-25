@@ -67,6 +67,14 @@
   .App-feedbacks .⭐ {
     margin: 10px;
   }
+
+  .App-feedbacks .⭐.tall {
+    grid-row-end: span 2;
+  }
+
+  .App-feedbacks .⭐.very-tall {
+    grid-row-end: span 3;
+  }
 }
 
 @media (min-width: 1370px) {
