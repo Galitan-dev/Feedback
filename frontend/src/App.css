@@ -58,7 +58,7 @@
   margin: 20px;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1100px) {
   .App-feedbacks {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -69,14 +69,8 @@
   }
 }
 
-@media (min-width: 1100px) {
-  .App-feedbacks {
-    grid-template-columns: repeat(3, auto);
-  }
-}
-
 @media (min-width: 1370px) {
   .App-feedbacks {
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(3, auto);
   }
 }
