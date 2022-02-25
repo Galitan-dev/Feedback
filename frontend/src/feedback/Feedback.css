@@ -55,6 +55,7 @@
 .⭐-author-picture {
     height: 20px;
     padding: 0;
+    border-radius: 50%;
 }
 
 .⭐-author-name {
